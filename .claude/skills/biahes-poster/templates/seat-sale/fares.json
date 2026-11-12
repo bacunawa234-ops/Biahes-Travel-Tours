@@ -1,0 +1,93 @@
+{
+ "serviceFee": 35,
+ "sample": false,
+ "travelDate": "TRAVEL PERIOD: NOVEMBER ONWARDS \u2014 SELECTED DATES ONLY, LIMITED SEATS",
+ "left": [
+  [
+   "Manila",
+   "Tacloban",
+   2563,
+   2490
+  ],
+  [
+   "Manila",
+   "Bacolod",
+   2563,
+   2488
+  ],
+  [
+   "Manila",
+   "Boracay",
+   2235,
+   2060
+  ],
+  [
+   "Manila",
+   "Cagayan",
+   2885,
+   2810
+  ],
+  [
+   "Manila",
+   "Cebu",
+   2675,
+   2665
+  ],
+  [
+   "Manila",
+   "Davao",
+   2996,
+   2975
+  ],
+  [
+   "Manila",
+   "Dumaguete",
+   2885,
+   2810
+  ]
+ ],
+ "right": [
+  [
+   "Manila",
+   "Iloilo",
+   2563,
+   2540
+  ],
+  [
+   "Manila",
+   "Kalibo",
+   2235,
+   2335
+  ],
+  [
+   "Manila",
+   "Puerto P.",
+   2615,
+   2890
+  ],
+  [
+   "Manila",
+   "Roxas",
+   2470,
+   2400
+  ],
+  [
+   "Cebu",
+   "Tacloban",
+   1975,
+   1910
+  ],
+  [
+   "Cebu",
+   "Davao",
+   2222,
+   2210
+  ],
+  [
+   "Tacloban",
+   "Davao",
+   2490,
+   2540
+  ]
+ ]
+}

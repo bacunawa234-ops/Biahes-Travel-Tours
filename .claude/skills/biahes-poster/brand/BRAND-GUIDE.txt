@@ -1,0 +1,35 @@
+BIAHES — OFFICIAL LOGO & BRAND COLORS
+=====================================
+
+Official logo: blue "B" with a red swoosh and an airplane taking off,
+plus a suitcase and a cruise ship inside the lower part of the B.
+
+FILES
+-----
+biahes-logo.png                   Main logo, transparent background (968 x 1064)
+                                  -> posters, quotations, receipts, Canva designs
+biahes-logo-white-bg.png          Logo on a white background
+                                  -> documents, Messenger, anywhere transparency isn't supported
+biahes-logo-facebook-profile.png  2048 x 2048, centered for the round crop
+                                  -> Facebook / Instagram / Messenger profile photo
+biahes-logo-watermark-small.png   Small version (300 px)
+                                  -> watermark in the corner of travel photos and Reels
+
+BRAND COLORS (sampled from the logo)
+------------------------------------
+Bright blue   #277DE5   top of the B, highlights
+Royal blue    #255BBB   main brand blue (headlines, buttons)
+Navy          #141C69   dark text, dark backgrounds
+Red           #C12C3E   swoosh, price tags, "BOOK NOW" accents
+Deep red      #A2153D   shadows of the swoosh
+Orange        #EA5537   airplane, call-to-action buttons
+
+USAGE TIPS
+----------
+- Use the logo on white or light backgrounds. On dark photos, place it on a
+  small white circle or white box so the ship and suitcase stay visible.
+- Keep space around the logo (at least the width of the plane).
+- Don't stretch, recolor, or add effects to the logo.
+- Minimum size: about 120 px tall on screens.
+- For large prints (tarpaulin, signage, shirts), have it redrawn as a vector
+  file (SVG/AI) first; this PNG is sized for screens and small prints.

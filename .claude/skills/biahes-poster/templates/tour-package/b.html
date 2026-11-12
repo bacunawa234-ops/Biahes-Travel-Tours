@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/montserrat/500.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/montserrat/700.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/montserrat/800.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/montserrat/900.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/montserrat/800-italic.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/montserrat/900-italic.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/kaushan-script/400.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/roboto-condensed/600-italic.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/roboto-condensed/700-italic.css">
+<style>
+  :root {
+    --blue: #255BBB; --blue-bright: #277DE5; --navy: #141C69;
+    --red: #C12C3E; --deep-red: #A2153D; --orange: #EA5537;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1280px; font-family: 'Montserrat', sans-serif; color: var(--navy); }
+  .page { position: relative; width: 1280px; overflow: hidden;
+    background: linear-gradient(180deg, #fff 0, #fff 1240px, #DCE3F0 1400px, #D6E4FA 100%); }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; height: 714px; }
+  .hero img.photo { width: 1280px; height: 714px; display: block; object-fit: cover; }
+  .hero .fade { position: absolute; left: 0; right: 0; bottom: 0; height: 190px;
+    background: linear-gradient(180deg, rgba(255,255,255,0), #fff 92%); }
+
+  .logo-card { position: absolute; left: 22px; top: 20px; width: 152px; height: 164px; background: #fff;
+    border-radius: 24px; box-shadow: 0 8px 26px rgba(20,28,105,.35); display: flex; align-items: center; justify-content: center; }
+  .logo-card img { height: 136px; }
+
+  .period { position: absolute; left: 190px; top: 22px; padding: 12px 20px 14px; border-radius: 20px;
+    background: linear-gradient(135deg, var(--navy), var(--blue)); color: #fff; text-align: center;
+    box-shadow: 0 8px 26px rgba(20,28,105,.4); border: 3px solid #fff; }
+  .period .label { display: inline-block; background: var(--orange); border-radius: 30px; padding: 4px 16px;
+    font-weight: 800; font-size: 20px; letter-spacing: 2px; }
+  .period .dates { display: grid; grid-template-columns: auto auto; gap: 7px 9px; margin-top: 9px; }
+  .period .dates span { background: #fff; color: var(--navy); font-weight: 900; font-size: 25px;
+    border-radius: 10px; padding: 4px 14px; white-space: nowrap; }
+
+  .price { position: absolute; right: 0; top: 30px; width: 470px; transform: rotate(-3deg); transform-origin: right top; text-align: right; }
+  .price .pill { display: inline-block; background: #fff; color: var(--navy); font-weight: 900; font-style: italic;
+    padding: 8px 30px 8px 34px; border-radius: 40px 0 0 40px; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+  .price .pill.top { font-size: 34px; }
+  .price .pill.bottom { font-size: 28px; color: var(--blue); font-style: normal; letter-spacing: 1px; }
+  .price .band { margin: 4px 0; background: linear-gradient(90deg, var(--red), var(--orange));
+    border-radius: 34px 0 0 34px; padding: 6px 30px 10px 34px; color: #fff; text-align: left;
+    box-shadow: 0 8px 22px rgba(162,21,61,.45); border: 3px solid #fff; border-right: 0; }
+  .price .band .low { font-weight: 800; font-style: italic; font-size: 24px; letter-spacing: 1px; }
+  .price .band .amt { font-weight: 900; font-size: 86px; line-height: .95; text-shadow: 0 5px 0 var(--deep-red); }
+
+  /* title */
+  .title { position: absolute; left: 270px; width: 800px; top: 300px; text-align: center; }
+  .layer { position: relative; display: inline-block; }
+  .layer > span { display: block; white-space: nowrap; }
+  .layer > .under { position: absolute; inset: 0; color: transparent; }
+  .layer > .over { position: relative; }
+  .t1 { font-size: 0; }
+  .t1 .d { font-weight: 900; font-style: italic; font-size: 64px; }
+  .t1 .d .under { -webkit-text-stroke: 12px #fff; text-shadow: 0 6px 14px rgba(20,28,105,.45); }
+  .t1 .d .over { color: var(--blue); }
+  .t1 .fe { font-family: 'Kaushan Script'; font-size: 74px; color: #fff; margin-left: 16px;
+    text-shadow: 0 3px 0 var(--navy), 0 0 16px rgba(20,28,105,.7); vertical-align: baseline; }
+  .bkk { margin-top: -18px; font-weight: 900; font-size: 146px; letter-spacing: -1px; line-height: 1; }
+  .bkk .under { -webkit-text-stroke: 16px #fff; text-shadow: 0 10px 0 var(--navy), 0 16px 30px rgba(20,28,105,.55); }
+  .bkk .over { background: linear-gradient(180deg, #FFB347 0%, var(--orange) 48%, var(--red) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .t3 { margin-top: -6px; font-family: 'Kaushan Script'; font-size: 60px; color: #fff; transform: rotate(-4deg);
+    text-shadow: 0 3px 0 var(--navy), 0 0 18px rgba(20,28,105,.75); }
+
+  /* ---------- day circles ---------- */
+  .day { position: absolute; top: 640px; width: 300px; margin-left: -150px; height: 260px; }
+  .day .circle { position: absolute; left: 24px; top: 0; width: 252px; height: 252px; border-radius: 50%;
+    border: 8px solid #fff; overflow: hidden; box-shadow: 0 10px 26px rgba(20,28,105,.35); background: var(--navy); }
+  .day .circle img { width: 236px; height: 236px; display: block; }
+  .day svg { position: absolute; left: 0; top: 150px; width: 300px; height: 110px; overflow: visible; }
+
+  /* ---------- itinerary columns ---------- */
+  .col { position: absolute; top: 918px; text-align: center; }
+  .col h3 { font-weight: 800; font-size: 25px; color: var(--blue); line-height: 1.12; letter-spacing: .3px; }
+  .col .sub { font-weight: 800; font-size: 17px; color: var(--orange); letter-spacing: 1px; margin-top: 4px; }
+  .col .script { font-family: 'Kaushan Script'; font-size: 40px; color: var(--red); line-height: 1.1; }
+  .col p { font-family: 'Roboto Condensed'; font-style: italic; font-weight: 700; font-size: 21px; line-height: 1.2; margin-top: 8px; }
+  .col.c2 .script { font-size: 36px; margin-top: 12px; }
+  .col .choose { font-family: 'Roboto Condensed'; font-style: italic; font-weight: 700; font-size: 15px; line-height: 1.2; margin-top: 4px; }
+  .col .opt { font-family: 'Roboto Condensed'; font-style: italic; font-weight: 600; font-size: 17px; line-height: 1.22; margin-top: 7px; }
+  .col .opt b { color: var(--red); font-weight: 700; }
+
+  .flower { position: absolute; top: 1040px; }
+
+  /* ---------- lower sections ---------- */
+  .lower { position: relative; padding-top: 662px; } /* hero is 714px tall, so this starts the box at 1376px */
+  .optional { margin: 0 150px; border-radius: 30px; padding: 20px 34px 22px; color: #fff;
+    background: linear-gradient(135deg, var(--blue-bright) 0%, var(--blue) 45%, var(--navy) 100%);
+    box-shadow: 0 12px 30px rgba(20,28,105,.35); border: 3px solid #fff; }
+  .optional h2 { font-weight: 900; font-size: 30px; letter-spacing: 1px; }
+  .optional h2 span { color: #FFB347; }
+  .optional ul { list-style: none; margin-top: 8px; }
+  .optional li { font-weight: 500; font-size: 16.5px; line-height: 1.38; padding-left: 20px; position: relative; }
+  .optional li::before { content: '✈'; position: absolute; left: 0; top: 0; font-size: 13px; color: #FFB347; }
+  .optional li b { font-weight: 800; color: #FFD27A; }
+
+  .heading { text-align: center; font-weight: 900; font-size: 40px; letter-spacing: 1px; margin-top: 26px; }
+  .heading.inc { color: var(--red); }
+  .heading.exc { color: var(--navy); }
+  .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin: 10px 60px 0; }
+  .chip { font-weight: 700; font-size: 19px; color: #fff; padding: 6px 12px; border-radius: 6px; line-height: 1.2; text-align: center;
+    box-shadow: 0 3px 8px rgba(20,28,105,.18); }
+  .chip.b { background: var(--blue); }
+  .chip.o { background: var(--orange); }
+  .chip.n { background: var(--navy); }
+  .chip.r { background: var(--red); }
+
+  .footer { margin-top: 30px; background: linear-gradient(90deg, var(--navy), var(--blue)); color: #fff;
+    display: flex; align-items: center; gap: 28px; padding: 22px 46px; }
+  .footer .lc { width: 112px; height: 120px; background: #fff; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex: none; }
+  .footer .lc img { height: 98px; }
+  .footer .cta { font-weight: 900; font-size: 46px; letter-spacing: 1px; }
+  .footer .cta span { color: #FFB347; }
+  .footer .msg { font-weight: 700; font-size: 25px; margin-top: 2px; }
+  .footer .fine { font-family: 'Roboto Condensed'; font-style: italic; font-weight: 600; font-size: 17px; opacity: .85; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <img class="photo" src="hero-clean-2k.jpg">
+    <div class="fade"></div>
+
+    <div class="logo-card"><img src="../../brand/biahes-logo.png"></div>
+    <div class="period">
+      <div class="label">TRAVEL PERIOD</div>
+      <div class="dates"><span>DEC 11-14, 2026</span><span style="background:#EA5537;color:#fff">FEW SLOTS LEFT!</span></div>
+    </div>
+
+    <div class="price">
+      <div class="pill top">4 DAYS 3 NIGHTS</div>
+      <div class="band">
+        <div class="low">FOR AS LOW AS</div>
+        <div class="amt">₱25,499</div>
+      </div>
+      <div class="pill bottom">PER PERSON</div>
+    </div>
+
+    <div class="title">
+      <div class="t1">
+        <span class="layer d"><span class="under">4D3N</span><span class="over">4D3N</span></span><span class="fe">Free &amp; Easy</span>
+      </div>
+      <div class="layer bkk"><span class="under">BANGKOK</span><span class="over">BANGKOK</span></div>
+      <div class="t3">With Free City Tour</div>
+    </div>
+  </div>
+
+  <!-- day circles -->
+  <div id="days"></div>
+
+  <!-- itinerary -->
+  <div class="col" style="left:20px;width:280px">
+    <h3>MANILA-BANGKOK</h3>
+    <p>Meet and greet at the airport, transfer to hotel.</p>
+  </div>
+  <div class="col c2" style="left:310px;width:340px">
+    <h3>COMPLIMENTARY<br>CITY TOUR</h3>
+    <div class="sub">BREAKFAST</div>
+    <div class="script">Tour Highlights</div>
+    <div class="choose">PLEASE CHOOSE ONE OPTION BELOW FOR<br>COMPLIMENTARY CITY TOUR:</div>
+    <div class="opt"><b>OPTION 1:</b> Half Day City Tour visit Wat-saket (Golden Mountain), Wat-in (Standing Buddha), Lucky Temple, Prime Dragon Gems</div>
+    <div class="opt"><b>OPTION 2:</b> Half Day City Tour visit Wat-Arun (Temple of Dawn), with roundtrip boat transfer along Chao Phraya River, Lucky Temple and Prime Dragon Gems</div>
+    <div class="opt"><b>OPTION 3:</b> Half Day City Tour experience the Canal Tour, boat riding along Chao Phraya River, visit the Biggest Golden Sitting Buddha and experience fish feeding at Chao Phraya River (min. 4pax)</div>
+  </div>
+  <div class="col" style="left:660px;width:280px">
+    <div class="script">Free Time</div>
+    <p>Leisure time/explore nearby attractions or avail optional tours</p>
+  </div>
+  <div class="col" style="left:980px;width:280px">
+    <div class="script">Free Time</div>
+    <p>Hotel Breakfast, Free time own leisure until departure</p>
+  </div>
+
+  <img class="flower" src="flower-left.png" style="left:0">
+  <img class="flower" src="flower-right.png" style="right:0">
+
+  <div class="lower">
+    <div class="optional">
+      <h2>OPTIONAL TOURS<span>:</span></h2>
+      <ul>
+                <li>Ancient City Tour with Lunch (MON, WED, FRI) = <b>PHP 4,999 per pax</b></li>
+        <li>Ayutthaya Tour by Land w/ Lunch w/ RT Transfer = <b>PHP 5,699 per pax</b></li>
+        <li>Grand Palace and Emerald Buddha = <b>PHP 3,999 per pax</b></li>
+        <li>White Orchid Dinner Cruise = <b>PHP 3,499 per pax</b></li>
+        <li>Pattaya Nong-Nooch Village and Botanical Garden, w/ Cultural Show, Elephant Show and Buffet Lunch = <b>PHP 5,999 per pax</b> (min. 5pax)</li>
+        <li>Damnoen Saduak Floating Market, Crocodile Farm, Elephant Theme Show w/ Lunch = <b>PHP 4,499 per pax</b></li>
+      </ul>
+    </div>
+
+    <div class="heading" style="font-size:26px;color:#141C69">HOTEL: <span style="color:#C12C3E">Ten-Star Inn</span> or <span style="color:#C12C3E">MY Hotel</span> • 1–2 min walk to Pratunam Market</div>
+    <div class="heading inc">INCLUSIONS</div>
+    <div class="chips">
+      <span class="chip b">Roundtrip airfare via Cebu Pacific</span>
+      <span class="chip o">1pc 7kg carry-on baggage allowance</span>
+      <span class="chip b">3 Nights Hotel Accommodation</span>
+      <span class="chip o">Daily hotel breakfast</span>
+      <span class="chip b">English Speaking Guide</span>
+      <span class="chip o">Free Round-trip Airport Transfers</span>
+      <span class="chip b">Free Half Day BANGKOK City Tour</span>
+      <span class="chip o">Local travel insurance included just providing the guest passport copy or complete list of names 3 days before their arrival</span>
+    </div>
+
+    <div class="heading exc">EXCLUSIONS</div>
+    <div class="chips">
+      <span class="chip n">PH Travel Tax 1,670 to be paid at the airport's TIEZA Counter</span>
+      <span class="chip r">Extra Baggage allowance</span>
+      <span class="chip n">Meals as per itinerary</span>
+      <span class="chip r">All other services not specified in the itinerary</span>
+      <span class="chip n">Personal expenses, such as laundry, telephone, drinks, etc.</span>
+    </div>
+
+    <div class="footer">
+      <div class="lc"><img src="../../brand/biahes-logo.png"></div>
+      <div>
+        <div class="cta">BOOK NOW<span>!</span></div>
+        <div class="msg">Message us on Facebook: <span style="color:#FFB347">Biahes</span></div>
+        <div class="fine">Rates are subject to change and availability • Non-refundable, non-rebookable • All rates exclusive of VAT</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Day circles with ribbons, centred on four evenly spaced columns
+  const centres = [160, 480, 800, 1120];
+  const ribbon = (n) => `
+    <svg viewBox="0 0 300 110">
+      <defs>
+        <linearGradient id="band${n}" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#2F7BEA"/><stop offset=".55" stop-color="#255BBB"/><stop offset="1" stop-color="#1B3592"/>
+        </linearGradient>
+      </defs>
+      <polygon points="0,34 48,34 48,104 0,104 17,69" fill="#141C69"/>
+      <polygon points="300,34 252,34 252,104 300,104 283,69" fill="#141C69"/>
+      <polygon points="26,90 48,104 48,86" fill="#0B1150"/>
+      <polygon points="274,90 252,104 252,86" fill="#0B1150"/>
+      <path d="M26,6 Q150,30 274,6 L274,90 Q150,114 26,90 Z" fill="url(#band${n})" stroke="#fff" stroke-width="2"/>
+      <text x="150" y="74" text-anchor="middle" font-family="Kaushan Script" font-size="50" fill="#fff"
+            style="paint-order: stroke; stroke: rgba(11,17,80,.55); stroke-width: 4px;">Day ${n}</text>
+    </svg>`;
+  document.getElementById('days').innerHTML = centres.map((cx, i) => `
+    <div class="day" style="left:${cx}px">
+      <div class="circle"><img src="day${i + 1}-clean.png"></div>
+      ${ribbon(i + 1)}
+    </div>`).join('');
+</script>
+</body>
+</html>
