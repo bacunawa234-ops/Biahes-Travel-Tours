@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/montserrat/500.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/montserrat/600.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/montserrat/700.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/montserrat/800.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/montserrat/900.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/montserrat/900-italic.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/kaushan-script/400.css">
+<link rel="stylesheet" href="../../fonts/node_modules/@fontsource/roboto-condensed/600-italic.css">
+<style>
+  :root { --blue:#255BBB; --bright:#277DE5; --navy:#141C69; --red:#C12C3E; --deep:#A2153D; --orange:#EA5537; --gold:#FFB347; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1280px; font-family: 'Montserrat', sans-serif; color: var(--navy); }
+  .page { position: relative; width: 1280px; overflow: hidden; background: #fff; }
+
+  /* ---------- hero scene ---------- */
+  .hero { position: relative; height: 760px; overflow: hidden;
+    background: linear-gradient(180deg, #0F1F6E 0%, #1E4FB8 38%, #3E8BE8 62%, #FFC27A 86%, #FF9A5C 100%); }
+  .sun { position: absolute; left: 860px; top: 380px; width: 230px; height: 230px; border-radius: 50%;
+    background: radial-gradient(circle, #FFF3C4 0%, #FFD27A 45%, #FFB347 70%, rgba(255,179,71,0) 72%); }
+  .hero svg.scene { position: absolute; left: 0; bottom: 0; width: 1280px; height: 420px; }
+
+  .logo-card { position: absolute; left: 34px; top: 30px; width: 150px; height: 162px; background: #fff; border-radius: 24px;
+    display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 26px rgba(0,0,0,.35); }
+  .logo-card img { height: 134px; }
+  .flag { position: absolute; left: 204px; top: 40px; color: #fff; }
+  .flag .k { display: inline-block; background: var(--red); border: 3px solid #fff; border-radius: 30px; padding: 6px 20px;
+    font-weight: 800; font-size: 20px; letter-spacing: 2px; }
+  .flag .s { font-family: 'Kaushan Script'; font-size: 34px; color: var(--gold); margin-top: 8px; text-shadow: 0 2px 0 rgba(0,0,0,.25); }
+
+  .price { position: absolute; right: 0; top: 34px; width: 450px; transform: rotate(-3deg); transform-origin: right top; text-align: right; }
+  .price .pill { display: inline-block; background: #fff; color: var(--navy); font-weight: 900; font-style: italic;
+    padding: 8px 30px 8px 34px; border-radius: 40px 0 0 40px; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+  .price .pill.top { font-size: 32px; }
+  .price .pill.bottom { font-size: 21px; color: var(--blue); font-style: normal; letter-spacing: 1px; }
+  .price .band { margin: 4px 0; background: linear-gradient(90deg, var(--red), var(--orange)); border-radius: 34px 0 0 34px;
+    padding: 6px 30px 10px 34px; color: #fff; text-align: left; box-shadow: 0 8px 22px rgba(162,21,61,.45); border: 3px solid #fff; border-right: 0; }
+  .price .band .low { font-weight: 800; font-style: italic; font-size: 23px; letter-spacing: 1px; }
+  .price .band .amt { font-weight: 900; font-size: 88px; line-height: .95; text-shadow: 0 5px 0 var(--deep); }
+
+  .title { position: absolute; left: 30px; right: 330px; top: 230px; text-align: center; color: #fff; }
+  .title .t1 { font-weight: 900; font-style: italic; font-size: 60px; letter-spacing: 1px; text-shadow: 0 5px 0 var(--navy); }
+  .title .t1 span { font-family: 'Kaushan Script'; font-style: normal; font-weight: 400; font-size: 70px; color: var(--gold); margin-left: 12px; }
+  .title .t2 { font-weight: 900; font-size: 150px; line-height: .95; letter-spacing: 2px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFE2A8 55%, var(--gold) 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 8px 0 var(--navy)) drop-shadow(0 16px 24px rgba(10,15,70,.5)); }
+  .title .t3 { font-weight: 800; font-size: 26px; letter-spacing: 8px; margin-top: 10px; text-shadow: 0 2px 6px rgba(0,0,0,.4); }
+
+  /* ---------- rate cards ---------- */
+  .sec { padding: 0 60px; }
+  .hotel { margin: -46px auto 0; position: relative; width: 760px; background: #fff; border-radius: 22px; text-align: center;
+    padding: 14px 20px; box-shadow: 0 10px 30px rgba(20,28,105,.25); border: 3px solid var(--line, #DCE3F0); }
+  .hotel .l { font-weight: 800; font-size: 16px; letter-spacing: 3px; color: var(--orange); }
+  .hotel .n { font-weight: 900; font-size: 34px; color: var(--navy); }
+  .hotel .n span { color: var(--gold); font-size: 30px; letter-spacing: 2px; }
+  .rates { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 28px; }
+  .rate { border-radius: 22px; overflow: hidden; text-align: center; box-shadow: 0 8px 22px rgba(20,28,105,.2); background: #fff; border: 3px solid #E3EAF7; }
+  .rate .h { background: linear-gradient(135deg, var(--navy), var(--blue)); color: #fff; font-weight: 900; font-size: 24px; padding: 12px 6px 10px; letter-spacing: 1px; }
+  .rate .h small { display: block; font-weight: 600; font-size: 14px; opacity: .85; letter-spacing: .5px; }
+  .rate .p { font-weight: 900; font-size: 46px; color: var(--red); padding: 14px 0 2px; }
+  .rate .u { font-weight: 700; font-size: 15px; color: #5A6390; padding-bottom: 14px; letter-spacing: 1px; }
+  .rate.best { border-color: var(--orange); }
+  .rate.best .h { background: linear-gradient(135deg, var(--red), var(--orange)); }
+  .note-tax { text-align: center; font-family: 'Roboto Condensed'; font-style: italic; font-weight: 600; font-size: 19px; color: var(--deep); margin-top: 14px; }
+
+  /* ---------- itinerary ---------- */
+  .h2 { text-align: center; font-weight: 900; font-size: 40px; letter-spacing: 1px; margin-top: 36px; }
+  .h2.red { color: var(--red); }
+  .days { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 18px; }
+  .day { border-radius: 20px; padding: 16px 16px 18px; background: #F3F6FC; border: 2px solid #E3EAF7; }
+  .day .d { display: inline-block; font-family: 'Kaushan Script'; font-size: 34px; color: #fff; background: linear-gradient(135deg, var(--blue), var(--bright));
+    border-radius: 14px; padding: 0 18px 4px; box-shadow: 0 4px 10px rgba(37,91,187,.35); }
+  .day h4 { font-weight: 900; font-size: 21px; color: var(--navy); margin-top: 10px; line-height: 1.15; }
+  .day .m { display: inline-block; font-weight: 800; font-size: 13px; color: var(--orange); letter-spacing: 1.5px; margin-top: 6px; }
+  .day p { font-family: 'Roboto Condensed'; font-style: italic; font-weight: 600; font-size: 18px; line-height: 1.25; margin-top: 6px; color: #2E3770; }
+
+  .opt { margin-top: 26px; border-radius: 26px; padding: 18px 30px; color: #fff; border: 3px solid #fff;
+    background: linear-gradient(135deg, var(--bright) 0%, var(--blue) 45%, var(--navy) 100%); box-shadow: 0 12px 30px rgba(20,28,105,.3); }
+  .opt h3 { font-weight: 900; font-size: 26px; letter-spacing: 1px; }
+  .opt h3 span { color: var(--gold); font-weight: 700; font-size: 18px; letter-spacing: .5px; margin-left: 8px; }
+  .opt .list { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 10px; }
+  .opt .list span { background: rgba(255,255,255,.16); border: 2px solid rgba(255,255,255,.4); border-radius: 30px; padding: 5px 16px; font-weight: 700; font-size: 18px; }
+
+  .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
+  .chip { font-weight: 700; font-size: 19px; color: #fff; padding: 7px 14px; border-radius: 8px; line-height: 1.2; text-align: center; box-shadow: 0 3px 8px rgba(20,28,105,.18); }
+  .chip.b { background: var(--blue); } .chip.o { background: var(--orange); } .chip.n { background: var(--navy); } .chip.r { background: var(--red); }
+
+  .req { margin-top: 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .req div { border-radius: 18px; padding: 14px 20px; background: #FFF6EC; border-left: 8px solid var(--orange); font-size: 17px; font-weight: 600; line-height: 1.35; }
+  .req div b { display: block; font-weight: 900; font-size: 19px; color: var(--red); margin-bottom: 3px; letter-spacing: .5px; }
+
+  .footer { margin-top: 30px; background: linear-gradient(90deg, var(--navy), var(--blue)); color: #fff; display: flex; align-items: center; gap: 28px; padding: 22px 46px; }
+  .footer .lc { width: 112px; height: 120px; background: #fff; border-radius: 20px; display: flex; align-items: center; justify-content: center; flex: none; }
+  .footer .lc img { height: 98px; }
+  .footer .cta { font-weight: 900; font-size: 46px; letter-spacing: 1px; }
+  .footer .cta span { color: var(--gold); }
+  .footer .msg { font-weight: 700; font-size: 24px; margin-top: 2px; }
+  .footer .msg span { color: var(--gold); }
+  .footer .fine { font-family: 'Roboto Condensed'; font-style: italic; font-weight: 600; font-size: 16.5px; opacity: .88; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hero">
+    <div class="sun"></div>
+    <!-- Illustrated Da Nang scene: Son Tra mountains, city skyline, Dragon Bridge, sea and beach -->
+    <svg class="scene" viewBox="0 0 1280 420" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2AA7D8"/><stop offset="1" stop-color="#0E6FB3"/></linearGradient>
+        <linearGradient id="mt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2D5A8C"/><stop offset="1" stop-color="#1B3A6B"/></linearGradient>
+        <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE7B8"/><stop offset="1" stop-color="#F6CF8A"/></linearGradient>
+      </defs>
+      <!-- mountains -->
+      <path d="M0,170 C90,110 160,90 240,120 C300,70 380,60 450,110 C520,150 560,160 600,175 L600,240 L0,240 Z" fill="url(#mt)" opacity=".85"/>
+      <!-- skyline -->
+      <g fill="#162E66">
+        <rect x="560" y="120" width="34" height="120"/><rect x="600" y="95" width="28" height="145"/><rect x="634" y="130" width="40" height="110"/>
+        <rect x="680" y="70" width="30" height="170"/><rect x="716" y="110" width="44" height="130"/><rect x="766" y="140" width="30" height="100"/>
+        <rect x="800" y="100" width="26" height="140"/><rect x="832" y="150" width="50" height="90"/><rect x="888" y="125" width="30" height="115"/>
+        <rect x="924" y="160" width="60" height="80"/><rect x="990" y="140" width="34" height="100"/><rect x="1030" y="170" width="70" height="70"/>
+        <rect x="1106" y="150" width="30" height="90"/><rect x="1140" y="175" width="140" height="65"/>
+      </g>
+      <g fill="#FFD27A" opacity=".75">
+        <rect x="686" y="90" width="6" height="6"/><rect x="698" y="110" width="6" height="6"/><rect x="606" y="120" width="6" height="6"/>
+        <rect x="806" y="125" width="6" height="6"/><rect x="726" y="135" width="6" height="6"/><rect x="896" y="150" width="6" height="6"/>
+      </g>
+      <!-- Dragon Bridge -->
+      <g stroke="#FFC14D" stroke-width="7" fill="none" stroke-linecap="round">
+        <path d="M150,232 C210,170 270,170 330,232 C390,170 450,170 510,232 C570,175 620,175 660,232"/>
+      </g>
+      <rect x="120" y="230" width="560" height="9" rx="3" fill="#0E2457"/>
+      <circle cx="668" cy="214" r="13" fill="#FFC14D"/>
+      <!-- sea -->
+      <path d="M0,240 L1280,240 L1280,360 L0,360 Z" fill="url(#sea)"/>
+      <g stroke="#FFFFFF" stroke-width="3" opacity=".55" fill="none" stroke-linecap="round">
+        <path d="M60,270 q30,-10 60,0 t60,0"/><path d="M380,290 q30,-10 60,0 t60,0"/><path d="M760,265 q30,-10 60,0 t60,0"/>
+        <path d="M1040,300 q30,-10 60,0 t60,0"/><path d="M220,320 q30,-10 60,0 t60,0"/><path d="M880,330 q30,-10 60,0 t60,0"/>
+      </g>
+      <!-- sun reflection -->
+      <g fill="#FFE2A8" opacity=".6"><rect x="930" y="250" width="110" height="5" rx="2"/><rect x="950" y="268" width="70" height="4" rx="2"/><rect x="965" y="284" width="40" height="4" rx="2"/></g>
+      <!-- beach -->
+      <path d="M0,350 C300,320 700,335 1280,318 L1280,420 L0,420 Z" fill="url(#sand)"/>
+      <path d="M0,350 C300,320 700,335 1280,318" stroke="#FFFFFF" stroke-width="6" fill="none" opacity=".8"/>
+      <!-- palms -->
+      <g fill="#123B2E">
+        <path d="M70,420 C78,380 84,345 96,300 L104,302 C94,345 90,382 86,420 Z"/>
+        <path d="M100,300 C70,280 40,285 18,300 C48,288 76,292 100,304 Z"/><path d="M100,300 C120,270 150,262 178,270 C150,272 124,284 102,304 Z"/>
+        <path d="M100,300 C80,265 82,240 96,222 C92,248 96,274 104,300 Z"/><path d="M100,300 C130,290 160,300 176,318 C152,304 126,302 100,304 Z"/>
+        <path d="M1190,420 C1186,385 1180,350 1168,315 L1176,312 C1188,348 1194,384 1198,420 Z"/>
+        <path d="M1172,314 C1150,290 1120,288 1098,300 C1126,294 1150,300 1172,318 Z"/><path d="M1172,314 C1190,285 1220,280 1250,290 C1222,292 1196,300 1174,318 Z"/>
+        <path d="M1172,314 C1160,280 1166,258 1180,242 C1174,266 1176,290 1176,314 Z"/>
+      </g>
+    </svg>
+
+    <div class="logo-card"><img src="../../brand/biahes-logo.png"></div>
+    <div class="flag"><div class="k">LAND PACKAGE PROMO</div><div class="s">Your next trip starts here!</div></div>
+
+    <div class="price">
+      <div class="pill top">4 DAYS 3 NIGHTS</div>
+      <div class="band"><div class="low">FOR AS LOW AS</div><div class="amt">₱11,799</div></div>
+      <div class="pill bottom">PER PAX · TRIPLE SHARING</div>
+    </div>
+
+    <div class="title">
+      <div class="t1">4D3N<span>Free &amp; Easy</span></div>
+      <div class="t2">DA NANG</div>
+      <div class="t3">VIETNAM</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="hotel"><div class="l">YOUR HOTEL</div><div class="n">Satya Da Nang <span>★★★</span></div></div>
+
+    <div class="rates">
+      <div class="rate"><div class="h">TWIN<small>2 adults per room</small></div><div class="p">₱12,399</div><div class="u">PER PERSON</div></div>
+      <div class="rate best"><div class="h">TRIPLE<small>3 adults per room</small></div><div class="p">₱11,799</div><div class="u">PER PERSON</div></div>
+      <div class="rate"><div class="h">SOLO<small>1 adult per room</small></div><div class="p">₱17,099</div><div class="u">PER PERSON</div></div>
+      <div class="rate"><div class="h">CHILD<small>2–9 yrs · no bed</small></div><div class="p">₱7,699</div><div class="u">PER CHILD</div></div>
+    </div>
+    <div class="note-tax">Land arrangement only – airfare not included · Rates exclusive of tax and fuel surcharge (see below)</div>
+
+    <div class="h2">ITINERARY</div>
+    <div class="days">
+      <div class="day"><span class="d">Day 1</span><h4>Arrival in Da Nang</h4><p>Meet our local representative at Da Nang Airport. Private transfer to hotel (check-in 2:00 PM). Free at leisure.</p></div>
+      <div class="day"><span class="d">Day 2</span><h4>Free Day</h4><span class="m">BREAKFAST</span><p>Explore at your own pace or add an optional tour.</p></div>
+      <div class="day"><span class="d">Day 3</span><h4>Free Day</h4><span class="m">BREAKFAST</span><p>Beach day at My Khe or a day trip to Hoi An.</p></div>
+      <div class="day"><span class="d">Day 4</span><h4>Departure</h4><span class="m">BREAKFAST</span><p>Hotel pick-up by driver and private transfer to the airport.</p></div>
+    </div>
+
+    <div class="opt">
+      <h3>POPULAR OPTIONAL TOURS <span>rates on request · message us</span></h3>
+      <div class="list"><span>Ba Na Hills &amp; Golden Bridge</span><span>Hoi An Ancient Town</span><span>Marble Mountains</span><span>Son Tra Peninsula</span><span>Han River cruise</span></div>
+    </div>
+
+    <div class="h2 red">INCLUSIONS</div>
+    <div class="chips">
+      <span class="chip b">3 nights hotel accommodation</span>
+      <span class="chip o">Daily hotel breakfast</span>
+      <span class="chip b">Private round-trip airport transfers</span>
+      <span class="chip o">Hotel taxes &amp; service charge</span>
+    </div>
+
+    <div class="h2" style="color:#141C69">EXCLUSIONS</div>
+    <div class="chips">
+      <span class="chip n">Airfare &amp; PH travel tax</span>
+      <span class="chip r">Fuel surcharge (mandatory, varies by date)</span>
+      <span class="chip n">Travel insurance (mandatory)</span>
+      <span class="chip r">Hotel security deposit</span>
+      <span class="chip n">Driver/guide tipping: US$11/pax/day (2–4 pax)</span>
+      <span class="chip r">9PM–6AM flights: US$8/way/group</span>
+      <span class="chip n">Airport guide: US$24/way/group</span>
+    </div>
+
+    <div class="req">
+      <div><b>📝 VIETNAM ENTRY</b>Passport valid 6 months beyond departure. Submit the Pre-Arrival Information form online at least 1 day before arrival. Visa only for applicable passports.</div>
+      <div><b>✈️ PHILIPPINE eTRAVEL</b>Register on etravel.gov.ph within 72 hours before your departing and returning flights.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="lc"><img src="../../brand/biahes-logo.png"></div>
+    <div>
+      <div class="cta">BOOK NOW<span>!</span></div>
+      <div class="msg">FB: <span>Biahes</span> · ☎ <span>0956 382 3906</span></div>
+      <div class="fine">Subject to availability; nothing booked yet · Rates may change without prior notice · Lowest room category · Non-refundable once booked</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
